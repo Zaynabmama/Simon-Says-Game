@@ -5,6 +5,32 @@ let started = false
 let level = 0
 let soundNames = ['red', 'blue', 'green' ,  'yellow'];
 
+let redDiv= document.getElementById('red')
+let blueDiv= document.getElementById('blue')
+let greenDiv= document.getElementById('green')
+let yellowDiv= document.getElementById('yellow')
+
+
+redDiv.addEventListener('click',function(){
+    userClickedPattern.push(redDiv);
+    console.log("you pressed red!");
+
+})
+blueDiv.addEventListener('click',function(){
+    userClickedPattern.push(redDiv);
+    console.log("you pressed blue!");
+
+})
+greenDiv.addEventListener('click',function(){
+    userClickedPattern.push(redDiv);
+    console.log("you pressed green!");
+
+})
+yellowDiv.addEventListener('click',function(){
+    userClickedPattern.push(redDiv);
+    console.log("you press yellow!");
+
+})
 
 document.addEventListener('keypress', () => {
 
@@ -43,10 +69,7 @@ document.addEventListener('keypress', () => {
  
             
     }
-    function press(){
-        
-
-    }
+    
         
     
 
