@@ -43,6 +43,7 @@ document.addEventListener('keypress', () => {
 
 });
         function nextSequence(){
+            userClickedPattern=[];  
               level++;
               document.querySelector("#level-title").textContent = `Level ${level}`
             //started = true
@@ -63,16 +64,48 @@ document.addEventListener('keypress', () => {
             let soundPath = `sounds/${selectedSoundName}.mp3`;
             let audio = new Audio(soundPath);
             audio.play();
-            let buttonElement = document.getElementById(randomButton);
+            //let buttonElement = document.getElementById(randomButton);
   
-            buttonElement.classList.add('pressed');
+            //buttonElement.classList.add('pressed');
  
             
     }
+    //function pressedButtom()
     
         
-    
+    function check(){
 
+
+        if (arraysAreEqual(userClickedPattern,gamePattern)){
+            nextSequence();
+
+        }
+        else{
+            gameOver();
+        }
+    }
+    function gameOver(){
+        console.log("you faill!!!!")
+        document.body.style.background="red";
+
+        let gamePattern = [];
+        let userClickedPattern = []
+        let started = false
+        let level = 0
+       
+document.addEventListener('keypress', () => {
+
+    if (!started) {
+        document.querySelector("#level-title").textContent = `Level ${level}`
+        nextSequence();
+        started = true
+    }
+})
+
+
+
+
+    }
     
 
 
