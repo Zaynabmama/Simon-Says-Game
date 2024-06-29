@@ -37,8 +37,16 @@ document.addEventListener('keypress', () => {
             let soundPath = `sounds/${selectedSoundName}.mp3`;
             let audio = new Audio(soundPath);
             audio.play();
+            let buttonElement = document.getElementById(randomButton);
+  
+            buttonElement.classList.add('pressed');
+ 
+            
     }
-    
+    function press(){
+        
+
+    }
         
     
 
