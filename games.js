@@ -8,6 +8,7 @@ let redDiv= document.getElementById('red')
 let blueDiv= document.getElementById('blue')
 let greenDiv= document.getElementById('green')
 let yellowDiv= document.getElementById('yellow')
+const soundNames = ['red', 'blue', 'green', 'yellow']
 //let divsquare = document.querySelectorAll('.row div')
 
 
@@ -20,6 +21,7 @@ redDiv.addEventListener('click', function() {
     }, 100);
     userClickedPattern.push(userClick);
     //playSound(green);
+    playSound(userClick);
     console.log("red div pressed");
     check(userClickedPattern[userClick]);
     console.log(userClickedPattern)
@@ -34,6 +36,7 @@ greenDiv.addEventListener('click', function() {
         greenDiv.classList.remove("pressed");
     }, 100);
     userClickedPattern.push(userClick);
+    playSound(userClick);
     //playSound(green);
     console.log("green div pressed");
     check(userClickedPattern[userIndex]);
@@ -48,7 +51,7 @@ yellowDiv.addEventListener('click', function() {
         yellowDiv.classList.remove("pressed");
     }, 100);
     userClickedPattern.push(userClick);
-   // playSound(blue);
+    playSound(userClick);
     console.log("yellow div pressed");
     check(userClickedPattern[userIndex]);
     console.log(userClickedPattern)
@@ -64,6 +67,7 @@ blueDiv.addEventListener('click', function() {
     userClickedPattern.push(userClick);
     console.log("blue div pressed");
     //playSound(blue);
+    playSound(userClick);
     check(userClickedPattern[userIndex]);
     console.log(userClickedPattern)
 });
@@ -107,6 +111,15 @@ function nextSequence() {
     animatePress(randomColor);
 }
 
+function playSound(color) {
+    let selectedSoundName = soundNames[color];
+    let soundPath = `sounds/${selectedSoundName}.mp3`;
+    let audio = new Audio(soundPath);
+    audio.play();
+   
+}
+
+
 
 function check() {
     if (userClickedPattern[userIndex] === gamePattern[userIndex]) {
@@ -126,7 +139,7 @@ function gameOver() {
     document.querySelector("body").classList.add("game-over");
     setTimeout(() => {
         document.querySelector("body").classList.remove("game-over");
-        
+        playSound(wrong)
         gamePattern = [];
         userClickedPattern = [];
         started = false;
