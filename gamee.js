@@ -5,12 +5,6 @@ let started = false
 let level = 0
 const soundNames = ['red', 'blue', 'green', 'yellow']
 
-//let redDiv= document.getElementById('red')
-//let blueDiv= document.getElementById('blue')
-//let greenDiv= document.getElementById('green')
-//let yellowDiv= document.getElementById('yellow')
-//const soundNames = ['red', 'blue', 'green', 'yellow']
-
 document.addEventListener('keypress', () => {
 
     if (!started) {
@@ -46,7 +40,7 @@ function userClick() {
             let soundPath = `sounds/${color}.mp3`;
             let audio = new Audio(soundPath);
             audio.play(); 
-            console.log('hi')
+            //console.log('hi')
             shadow(color);
             checkAns();
             
